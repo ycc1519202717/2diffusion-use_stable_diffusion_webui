@@ -1,0 +1,4 @@
+1colab
+https://github.com/camenduru/stable-diffusion-webui-colab
+
+2autodl

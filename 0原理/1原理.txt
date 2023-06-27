@@ -1,0 +1,25 @@
+一stable diffusion大组件模型
+Stable Diffusion 是 Latent Diffusion 一个具体实现方式，选用了特定的组件，保存在预训练模型model.ckpt中，是软件的全局模型。
+大组件模型包含以下所有组件
+
+
+1text encoder文本编码器
+输入：文本
+输出：1X77X768。一段话，77个单词，每个单词映射到768维度。
+text encoder作用是把文字encoder成latent向量。这里不训练直接搬运transformer训练好的clip模型。
+
+2unet+scheduler
+输入：无规律分布图片。（噪点图）
+输出：有规律分布图片。
+scehduler的任务是选择增加或降低噪点的位置。有多种方式实现，包括DDPM,DDIM等。
+UNet的任务则是在前向扩散中学习，用于在后向扩散中预测每一次迭代需要减少的噪点数量。
+
+
+3vae变分自编码器
+输入：4X64X64。
+输出：3X512X512。红绿蓝，宽，高。
+vae作用是把正常图像encoder成latent向量，训练完后输出也是latent向量的数据形式，再把latent向量解码成正常图像。
+
+二其他
+NeRF & Instant Neural Graphics：2D 变 3D，模拟摇杆，变换镜头的角度和焦距等等。
+lora：固定大模型参数，加入可以训练的中间层进行微调。

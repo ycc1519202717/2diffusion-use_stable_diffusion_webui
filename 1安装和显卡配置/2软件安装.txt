@@ -1,0 +1,15 @@
+存放地址：
+1checkpoint存放地址：stable-diffusion-webui\models\Stable-diffusion
+2vae存放地址：stable-diffusion-webui\models\VAE
+3lora存放地址：stable-diffusion-webui\models\Lora
+4textual inversion文本反演存放地址：stable-diffusion-webui\embeddings
+5hyper network超文本网络存放地址：stable-diffusion-webui\models\hypernetworks
+6其他插件存放地址：stable-diffusion-webui\extensions
+7chontrolnet模型存放地址：stable-diffusion-webui\extensions\sd-webui-controlnet\models
+
+格式说明
+pt：权重和结构数据。pickle保存的。
+pth：以字典形式保存权重，不包含模型结构信息，只能在相同结构上加载。pickle保存的。
+ckpt：包括了权重，学习率，迭代次数等更多信息，可用来重现训练过程。但不包括结构信息，需额外指定结构。pickle保存的。
+safetensors：纯权重数据。numpy保存的。
+
